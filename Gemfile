@@ -23,6 +23,9 @@ gem 'binding_of_caller'
 gem 'faker'
 gem 'simple_form'
 gem "bootstrap-sass"
+gem 'rspec-rails', group: [ :test ]
+gem 'rails-controller-testing', group: [ :test ]
+
 
 
 # Use CoffeeScript for .coffee assets and views
