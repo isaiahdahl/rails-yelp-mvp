@@ -12,7 +12,7 @@ puts "creating 20 fake restaurants"
       name: Faker::LordOfTheRings.location,
       address: Faker::Address.street_address,
       category: ["chinese", "italian", "japanese", "french", "belgian"].sample,
-      phone: Faker::PhoneNumber.phone_number.gsub!(/\D/, '').to_i
+      phone_number: Faker::PhoneNumber.phone_number.gsub!(/\D/, '').to_i
   )
   resto.save
 end
