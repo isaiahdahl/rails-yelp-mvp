@@ -25,6 +25,9 @@ gem 'simple_form'
 gem "bootstrap-sass"
 gem 'rspec-rails', group: [ :test ]
 gem 'rails-controller-testing', group: [ :test ]
+gem 'font-awesome-sass'
+gem 'autoprefixer-rails'
+gem 'jquery-rails'
 
 
 
