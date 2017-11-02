@@ -12,7 +12,7 @@ puts "creating 20 fake restaurants"
       name: Faker::LordOfTheRings.location,
       address: Faker::Address.street_address,
       category: ["chinese", "italian", "japanese", "french", "belgian"].sample,
-      phone_number: Faker::PhoneNumber.phone_number.gsub!(/\D/, '').to_i
+      phone_number: Faker::PhoneNumber.phone_number
   )
   resto.save
 end
@@ -22,9 +22,9 @@ puts "reviewing those restaurants"
 
 100.times do
   post = Review.new(
-      rating: [1,2,3,4,5].sample,
-      content: Faker::Lorem.paragraphs(10).sample,
-      restaurant_id: (2..19).to_a.sample
+      rating: [3,4,5].sample,
+      content: Faker::FamilyGuy.quote,
+      restaurant_id: (2..30).to_a.sample
   )
   post.save
 end

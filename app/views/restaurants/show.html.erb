@@ -1,0 +1,61 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <div class="navbar-wagon-left">
+    <%= link_to restaurants_path, class: "navbar-wagon-brand" do %>
+        <%= image_tag "yelp_fullcolor.png" %>
+    <% end %>
+    <%= link_to "Sound a dog makes", restaurants_path , class: "dog navbar-wagon-link" %>
+  </div>
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <!-- Links -->
+    <%= link_to "Home", restaurants_path , class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "New", new_restaurant_path , class: "navbar-wagon-item navbar-wagon-link" %>
+
+    <!-- Avatar with dropdown menu -->
+  </div>
+  <!-- Dropdown list appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a href="<%= restaurants_path %>">Home</a></li>
+        <li><a href="<%= new_restaurant_path %>">New Restaurant</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container cards">
+  <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="card" style="width: 20rem;">
+          <img class="card-img-top" src="http://lorempixel.com/318/180/food" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title"><%= @restaurant.name %></h4>
+            <p class="card-text"><%= @restaurant.address %></p>
+            <p class="card-text"><%= @restaurant.phone_number %></p>
+            <p class="card-text"><%= @restaurant.reviews.count %> reviews</p>
+            <a href="<%= new_restaurant_review_path(@restaurant.id) %>" class="btn btn-primary">Rate this Restaurant</a>
+          </div>
+        </div>
+      </div>
+    <div class="col-xs-12 col-sm-6">
+      <ul class="reviews" >
+        <%= @restaurant.reviews.each do |review| %>
+            <li><%= review.content %></li>
+            <li><%= stars(review.rating) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <ul class="reviews" >
+    <%= @restaurant.reviews.each do |review| %>
+        <li><%= review.content %></li>
+        <li><%= stars(review.rating) %></li>
+    <% end %>
+  </ul>
+</div>
+
